@@ -1,8 +1,9 @@
 import styles from './CreatePost.module.css'
 
 import {useState} from 'react';
-import {useNavgate} from 'react-router-dom';
-import {UseAuthValue} from '../../context/AuthContext'
+import {useInsertDocument} from '../../hooks/UseInsertDocument';
+import {useNavigate} from 'react-router-dom';
+import {useAuthValue} from '../../context/AuthContext'
 
 const CreatePost = () => {
 
@@ -11,9 +12,42 @@ const CreatePost = () => {
   const [body, setBody] = useState("");
   const [tags, setTags] = useState([])
   const [formError, setFormError] = useState("")
+  
+  const {user} = useAuthValue()
+
+  const {insertDocument, response} = useInsertDocument("posts")
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setFormError("")
+
+    //validate URL image
+
+    //criar array da tags
+
+    //checar todos os valores
+
+    console.log({
+      title,
+      image,
+      body,
+      tags,
+      uid: user.uid,
+      createdBy: user.displayName,
+    });
+
+    insertDocument({
+      title,
+      image,
+      body,
+      tags,
+      uid: user.uid,
+      createdBy : user.displayName
+    })
+
+
+  // redirect to home page
+
   }
 
   return (
@@ -51,7 +85,7 @@ const CreatePost = () => {
          </textarea>
         </label>
         <label>
-          <span>URL da imagem</span>
+          <span>tags:</span>
           <input type="text" 
           name="tags" 
           required  
@@ -60,10 +94,10 @@ const CreatePost = () => {
           value={tags}
           />
         </label>
-        <button className='btn'>Publicar</button>
-        {/* {!loading && <button className='btn'>Cadastrar</button>}
-        {loading && <button className='btn' disabled>Aguarde</button>}
-        {error && <p className='error'>{error}</p>} */}
+
+        {!response.loading && <button className='btn'>Criar post</button>}
+        {response.loading && <button className='btn' disabled>Aguarde</button>}
+        {response.error && <p className='error'>{response.error}</p>} 
       </form>
     </div>
   )
