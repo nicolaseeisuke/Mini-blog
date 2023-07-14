@@ -1,66 +1,70 @@
-body{
+body {
   background-color: #f6fcff;
   padding: 0;
-  margin:0;
-  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 input::placeholder,
-textarea::placeholder{
-  font-family: 'Montserrat', sans-serif;
-  color: #aaa;
+textarea::placeholder {
+  font-family: "Montserrat", sans-serif;
 }
 
 input:focus,
-textarea:focus{
-  outline:none;
+textarea:focus {
+  outline: none;
 }
 
-a, nav button{
-  text-decoration:none;
+a,
+nav button {
+  text-decoration: none;
   background-color: transparent;
   border: none;
-  color:#000;
-  transition: .4s;
+  color: #000;
+  transition: 0.4s;
   font-size: 1em;
-  cursor:pointer;
-  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  font-family: "Montserrat", sans-seri;
 }
 
 a:hover,
-nav button:hover{
-  color:#bbb;
+nav button:hover {
+  color: #bbb;
 }
 
-
-/*form styles*/
-
-form{
+/* form styles */
+form {
   max-width: 40%;
   margin: 0 auto;
 }
 
-label{
+label {
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
 }
 
-label span{
-  margin-bottom: .3em;
+label span {
+  margin-bottom: 0.3em;
   font-weight: bold;
   text-align: left;
 }
 
-input, textarea{
+input,
+textarea {
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid #ccc;
-  padding: .8em 0;
+  padding: 0.8em 0em;
   background-color: transparent;
 }
 
-.btn{
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+}
+
+.btn {
   background-color: #1a8918;
   color: #fff;
   text-align: center;
@@ -73,12 +77,12 @@ input, textarea{
   font-size: 1em;
 }
 
-.btn.btn-dark{
+.btn.btn-dark {
   background-color: #000;
   border-radius: 0;
 }
 
-.btn.btn-outiline{
+.btn.btn-outline {
   background-color: transparent;
   border-radius: 0;
   color: #000;
@@ -86,24 +90,24 @@ input, textarea{
   padding: 7px 30px;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: #0f730c;
   color: #fff;
 }
 
-.btn.btn-outiline:hover{
+.btn.btn-outline:hover {
   background-color: #000;
 }
 
-.btt.btn-ranger:hover{
+.btn.btn-danger:hover {
   background-color: #dc3545;
 }
 
-button[disabled]{
+button[disabled] {
   background-color: #aaa;
 }
 
-.container .error{
+.container .error {
   color: #721c24;
   background-color: #f8d7da;
   border: 1px solid #f5c6cb;
